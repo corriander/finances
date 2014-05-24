@@ -1,0 +1,113 @@
+Budget Reference
+================
+
+This is a master list of budget considerations. It's largely based on
+the [MoneySavingExpert budget
+planner][www.moneysavingexpert.com/banking/Budget-planning] because
+it's more thorough than I need. Some of elements of this list are
+explicitly handled but otherwise it's a reference for budget creation.
+
+I've split down the categories as presented into types of element:
+
+  - **Simple:** This is a simple user-input value, these types of
+	element aren't generally explicitly modelled unless they're part 
+	of an aggregate.
+  - **Source:** These can all be treated as simple elements but they
+	might be either fixed costs or vary depending on external factors.
+	TV license is an example of a fixed cost (handled by a default),
+	and Council Tax or Rent may vary depend on location/accomodation.
+  - **Model:** These elements involve enough factors to justify being
+	modelled. For example vehicle fuel costs are better off
+	represented by a representative fuel consumption and mileage
+	rather than a simple cost. Of course, if the latter is preferred
+	these models can just be bypassed and the cost represented as a
+	simple one instead.
+  - **Other:** These elements I personally consider to be unnecessary
+	as either they aren't costs I incur or they are highly variable or
+	small one-off expenditures and ultimately better off coming out of
+	the disposable income pot.  In either case, they can pretty much
+	all be modelled as simple elements.
+
+Finally, note that a default frequency is noted when it's better
+treated as an annual expenditure rather than monthly, and some simple
+elements are flagged for future extension/modelling.
+
+Simple
+------
+
+  - Building/content insurance (annual)
+  - Overdraft cost (> model)
+  - Gas (> model)
+  - Electricity (> model)
+  - Householding cleaning (> model)
+  - Landline rental
+  - Internet rental
+  - Mobile phone
+  - Food / Household shopping (weekly, > model)
+  - Eating out/takeaway (weekly)
+  - Snacks/coffee etc. (weekly, > model)
+  - Drinks for home (weekly)
+  - Drinking out (weekly)
+  - Smokes (weekly)
+  - Work meals (weekly > model)
+  - Breakdown cover (annual)
+  - Public transport (annual, > model)
+  - Car insurance (annual, > model)
+  - Car tax
+  - Credit card (> model)
+  - Books/Music/Films/Computer Games
+  - Subscriptions (Netflix, etc.)
+  - Healthcare cashplans
+  - Holidays & Events (christmas, summer/winter hol, birthdays,
+	weddings, festivals, gigs, visits/trips, all annual, gigs and
+	vists might deserve modelling)
+
+
+Source
+------
+
+  - Rent
+  - Council Tax (annual)
+  - Water rates/meter
+  - TV License (annual)
+
+
+Model
+-----
+
+  - Income/Salary (annual)
+  - Car maintenance (annual)
+  - Car fuel 
+
+
+Other
+-----
+
+  - Bank account fees
+  - Oil (> model)
+  - Household maintenance
+  - Garden maintenance
+  - Insurance (mortgage PPI and term, pet, travel, medical, dental)
+  - Level Term insurance (annual)
+  - Mortgage PPI (annual)
+  - Mortgage Term insurance (annual)
+  - Pet insurance (annual)
+  - Travel insurance (annual)
+  - Boiler cover (annual)
+  - Loans (car, personal, hire purchase)
+  - Savings (regular, lump sum, ISA, investment, shares, pension)
+  - Family (totally irrelevant to me)
+  - DVD rental
+  - Computing
+  - Hobbies
+  - Shopping
+  - Days out
+  - Cinema/theatre
+  - TV subscription
+  - Health + Beauty (Haircuts, treatments, fitness, optical)
+  - Clothes
+  - Education (courses, fees)
+  - Home purchases (sofa, tv, etc.)
+  - Funerals
+  - Tax & NI (self employed)
+  - Charity

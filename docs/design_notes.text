@@ -1,0 +1,97 @@
+Design Notes
+============
+
+It's important to bear in mind that all of this can be (and is) done
+perfectly well with a spreadsheet. The immediate advantages of doing
+it in Python are, as I see it, twofold:
+
+  - Encapsulation. Hiding intermediate variables and calculations
+	makes for a cleaner, testable framework rather than a cluttered
+	spreadsheet. There's no limit to the complexity of models and
+	input becomes easier (particularly if you account for automation,
+	e.g. bank statement parsing).
+  - Speculation. A spreadsheet implementation needs either a template
+	base or room to add in alternative options. Comparing accomodation
+	options for different jobs, with different salaries and different
+	budgets? A Python implementation scales better.
+
+Beyond that, Python also allows for whatever interface you like and
+there is the scope for extension into the cloud. However, I'm not
+going this far with it in the short term.
+
+Guidelines / Philosophies
+-------------------------
+
+### Base Framework
+
+Generally the base framework should provide expenses on a variable
+frequency (and it's upto the user to choose the most appropriate).
+This can be normalised internally. Most are monthly expenses, so
+that's a good default. 
+
+### Classes
+
+A simple multi-purpose `Expense` class should be the workhorse. This
+*can* be subclassed *to provide extra functionality or different
+inputs*. Most budget elements should be left to the user to define.
+It's perfectly fine in principle to treat a Netflix subscription as an
+instance of `Expense`. It only makes sense to introduce a special
+treatment here if, for example, we want to model something extra about
+subscriptions. This might be date of payment for example, but this is
+probably better modelled as a class employed by a superclass of
+"subscriptions" (like "bills").
+
+An exception to this is where an aggregate set of costs, e.g. all
+those pertaining to owning and running a vehicle, should always
+include a certain set of expenses. This reduces the scope for errors
+and makes the budget architecture easier.
+
+### Modelling Cashflow
+
+There are two ways of modelling cashflow in and out of accounts.
+
+  - Hardcoding positive/negative values, even if input is uniform.
+  - Introspection.
+
+I prefer the introspection approach. Income elements of the finances
+are few and far between, so it's easy to treat expenses as negative
+values rather than actually model them that way. This is just more
+human-friendly IMO (£26/month is preferable to -£26/month when
+considering context).
+
+
+Models
+------
+
+### Vehicle Costs
+
+This is a biggy. Data from the AA is used here, though these aspects
+should really be extended to facilitate accurate information for a
+particular vehicle. This ties into the cost of commuting, etc.
+
+If you can nail down a representative fuel consumption, it's simply a
+case of specifying mileage and fuel cost (doesn't have to be overall!
+multiple instances are possible, e.g. commute, leisure, trips, as long
+as you aren't double-counting). 
+
+The model can spit out other stats if appropriate. Includes things
+like tyres, servicing, etc.
+
+### Income/Salary
+
+This is another biggie; model takes a salary and spitting out a
+post-tax value. This isn't really that hard although getting it
+accurate seems to be a slight problem for higher income brackets
+(floats rounding? Of course decimal or integers should be used but
+this isn't too critical).
+
+
+Visualisation
+-------------
+
+Poaching some ideas from github.com/fielder/ccash:
+
+  - Contribution Pie Chart
+  - Funds over time
+  - Spend rate over time
+  - Contribution over time
