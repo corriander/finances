@@ -68,3 +68,51 @@ class RepairFund(_Static):
 # 		cost = purchase_cost / lifetime
 # 		_Static.__init__(self, 'Distributed purchase cost', cost)
 
+
+class _Running(Expense):
+	"""Base class for running costs (based on mileage)."""
+	def __init__(self, name, cost, mileage):
+		name = "Vehicle running cost: {}".format(name)
+		annual_cost = cost * mileage
+		Expense.__init__(self, name, annual_cost)
+
+
+class Fuel(_Running):
+	"""Annual fuel cost (based on mileage)."""
+	def __init__(self, mileage, consumption=0.125, fuel_cost=1.40):
+		cost_per_mile = consumption * fuel_cost
+		_Running.__init__(self, 'Fuel', cost_per_mile,  mileage)
+
+
+class Tyres(_Running):
+	"""Annual cost of tyres (based on mileage).
+	
+	Default cost_per_mile based on AA's 2014 GBP25k-32k bracket.
+	
+	"""
+	def __init__(self, mileage, cost_per_mile=0.023):
+		_Running.__init__(self, 'Tyres', cost_per_mile, mileage)
+
+
+class Service(_Running):
+	"""Annual service [and] labour cost (based on mileage).
+	
+	Covers normal servicing and parts replacement at a main dealer
+	with average UK labour rates. This is very variable. Default
+	cost_per_mile based on AA's 2014 GBP25k-32k bracket.
+	
+	"""
+	def __init__(self, mileage, cost_per_mile=0.02):
+		_Running.__init__(self, 'Service', cost_per_mile, mileage)
+
+
+class Parts(_Running):
+	"""Annual parts cost (based on mileage).
+
+	Covers commonly replaced parts (fluids, filters, brakes, bulbs,
+	wipers).  Default cost_per_mile based on AA's 2014 GBP25k-32k
+	bracket.
+	
+	"""
+	def __init__(self, mileage, cost_per_mile=0.027):
+		_Running.__init__(self, 'Parts', cost_per_mile, mileage)
