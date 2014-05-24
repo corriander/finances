@@ -13,6 +13,7 @@ Feature List
 - Income model [TODO]
 - Accomodation and bills cost model [TODO]
 - Vehicle cost model [TODO]
+- Debt management [TODO]
 - Bank statement chomper [TODO]
 - Speculative budgets [TODO]
 - "Live" budget [TODO]
