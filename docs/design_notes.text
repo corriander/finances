@@ -19,6 +19,25 @@ Beyond that, Python also allows for whatever interface you like and
 there is the scope for extension into the cloud. However, I'm not
 going this far with it in the short term.
 
+Use Cases
+---------
+
+The following is an inexhaustive list of identified budget use cases:
+
+ 1. Analysis of existing finances.
+ 2. New car.
+ 3. Moving home.
+ 4. New job.
+ 5. New job with area relocation.
+
+There are compound use cases. For example, speculating about buying a
+new car is likely to be a combination of 1 and 2. Another example
+might be looking for jobs over a broad area, this activity might
+involve a number of combinations of 1 through 5. Specific combinations
+may be job dependent, or there may even be different combinations for
+a given position (e.g. new job with possible moving home).
+
+
 Guidelines / Philosophies
 -------------------------
 
@@ -84,6 +103,26 @@ post-tax value. This isn't really that hard although getting it
 accurate seems to be a slight problem for higher income brackets
 (floats rounding? Of course decimal or integers should be used but
 this isn't too critical).
+
+### Council Tax
+
+Council tax is a necessary expense for every household. There are a
+number of different ways of handling council tax:
+
+  - Simple expense. This is well suited to a known situation.
+  - A database. This would be useful for multiple users, or the edge
+	case (to say the least) of a user needing to look up a large
+	number of different local authorities.
+  - Estimation of council tax bands from a national average.
+  - Direct input of council tax bands.
+
+The database is unnecessary. For estimation of bands, the default can
+be the average and the user may input either a single value for
+increased accuracy of estimated bands or just input the bands
+directly. 
+
+There must also be a mechanism in the case of the bands to deduct
+discounts (e.g. SPD for single person occupancy).
 
 
 Visualisation
