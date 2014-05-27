@@ -64,9 +64,33 @@ class NationalInsurance(object):
 		return zip((self.primary_threshold, self.upper_earning_limit),
 				   self.rates)
 
+		
 class CouncilTax(dict):
-	def __init__(self, values):
-		dict.__init__(self, zip('ABCDEFGH', values))
+	"""Reference for council tax bands.
+
+	This might be employed when considering different accomodation
+	options in at least one area. Bands can be estimated from a single
+	band D value (default is national average) or directly provided.
+	Direct provision is preferred, in this case the band_d value is
+	ignored.
+
+	Source:
+	https://www.gov.uk/government/publications/council-tax-levels-set-by-local-authorities-in-england-2014-to-2015
+
+	"""
+	def __init__(self, band_d=1468, rates=None, SDP=False):
+		"""    inp : taxable amount(s) (value or tuple of 8 values)"""
+		if not rates:
+			# Set the ratios for each band in comparison to band 
+			rates = (band_d * x/9.0 
+					 for x in (6, 7, 8, 9, 11, 13, 15, 18))
+
+		if SDP:
+			# Apply 25% reduction to rates
+			rates = (x * (1 - 0.25) for x in rates)
+
+		dict.__init__(self, zip('ABCDEFGH', rates))
+
 # --------------------------------------------------------------------
 # Data
 # --------------------------------------------------------------------
